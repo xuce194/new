@@ -56,9 +56,11 @@ words_state = words_state.reset_index().sort_values(by=['计数'],ascending=Fals
 # 字体
 wordcloud = WordCloud(font_path='simhei.ttf',background_color='white',max_font_size=80)
 word_frequence = {x[0]:x[1] for x in words_state.head(1000).values}
-wordcloud = wordcloud.fit_words(word_frequence)
+
+id = dict(list(word_frequence.items())[:20])
+wordcloud = wordcloud.fit_words(id)
 plt.imshow(wordcloud)
-#plt.show(wordcloud)
+plt.show(wordcloud)
 
 
 
